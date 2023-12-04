@@ -14,10 +14,10 @@ echo "Температура в градусах Фаренгейта  ". $_GET[
     <input type="submit">
 </form>
 <?php
-//function factorialRecur($factor){
-//    return $factor==1? $factor: $factor*factorialRecur($factor-1);
-//}
-//echo "Факториал числа {$_GET['factor']} =   ".factorialRecur((int)$_GET['factor']); ?>
+function factorialRecur($factor){
+    return $factor==1? $factor: $factor*factorialRecur($factor-1);
+}
+echo "Факториал числа {$_GET['factor']} =   ".factorialRecur((int)$_GET['factor']); ?>
 <br>
 #3
 <form action="" method="get">
@@ -98,9 +98,29 @@ function searchRoot($a, $b, $c)
     }
     else
     {
-         return 'Дискриминант менеьше 0';
+        return 'Дискриминант менеьше 0';
     }
     return $x1." и ".$x2;
 }
 echo "Корни уравнения =   ". searchRoot($a,$b,$c)?>
 <br>
+#6
+<form action="" method="get">
+    <tr>Тройка Пифагора</tr><br>
+    <input name="numb11" value="<?= $_GET['numb11'] ?? 3?>">
+    <input name="numb12" value="<?= $_GET['numb12'] ?? 4?>">
+    <input name="numb13" value="<?= $_GET['numb13'] ?? 5?>">
+    <input type="submit">
+</form>
+<?php
+$a = (int)$_GET['numb11'];
+$b = (int)$_GET['numb12'];
+$c = (int)$_GET['numb13'];
+
+function searchPifagor($a, $b, $c)
+{
+    return $a**2+$b**2==$c**2 ? "Тройка Пифагора" : "Увы, но нет";
+}
+echo searchPifagor($a,$b,$c)?>
+<br>
+#7
