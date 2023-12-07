@@ -124,3 +124,17 @@ function searchPifagor($a, $b, $c)
 echo searchPifagor($a,$b,$c)?>
 <br>
 #7
+<form action="" method="get">
+    <tr>Тройка Пифагора</tr><br>
+    <input name="holliday" value="<?= $_GET['holiday'] ?? '01.01.1990'?>">
+    <input type="submit">
+</form>
+<?php
+$today = strtotime(date('d.m.y'));
+$holiday = strtotime($_GET['holiday']);
+while ($holiday-$today<0)
+{
+    $holiday+=strtotime('+1year');
+}
+?>
+<br>
