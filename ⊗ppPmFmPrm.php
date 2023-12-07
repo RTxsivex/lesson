@@ -125,7 +125,7 @@ echo searchPifagor($a,$b,$c)?>
 <br>
 #7
 <form action="" method="get">
-    <tr>Тройка Пифагора</tr><br>
+    <tr>Введите дату праздника</tr><br>
     <input name="holliday" value="<?= $_GET['holiday'] ?? '01.01.1990'?>">
     <input type="submit">
 </form>
