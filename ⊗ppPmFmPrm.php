@@ -139,3 +139,14 @@ while ($holiday<$today)
 }
 echo  "Количество дней до праздника: ". round(($holiday-$today)/(60*60*24));
 ?>
+#8
+<form action="" method="get">
+    <textarea name="text"> <?= $_GET['text'] ?? 'test'?> </textarea><br><br>
+    <input type="submit">
+</form>
+<?php
+$input = $_GET['text'];
+
+echo "Количество слов: ".count(preg_split('#\s+#', $input))."<br>"."Количество символов: ".mb_strlen($input, "utf8");
+?>
+#9
