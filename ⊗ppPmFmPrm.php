@@ -125,16 +125,17 @@ echo searchPifagor($a,$b,$c)?>
 <br>
 #7
 <form action="" method="get">
-    <tr>Введите дату праздника</tr><br>
-    <input name="holliday" value="<?= $_GET['holiday'] ?? '01.01.1990'?>">
+    <tr>Введи дату дня рождения</tr><br>
+    <input name="holiday" value="<?=$_GET['holiday'] ?? "01.01.1990"?>">
     <input type="submit">
 </form>
 <?php
-$today = strtotime(date('d.m.y'));
-$holiday = strtotime($_GET['holiday']);
-while ($holiday-$today<0)
+$today = strtotime(date('d.m.Y'));
+$holiday = strtotime(date('d.m.Y',strtotime($_GET['holiday'])));
+while ($holiday<$today)
 {
-    $holiday+=strtotime('+1year');
+    $holiday = strtotime('+1 year',$holiday);
+
 }
+echo  "Количество дней до праздника: ". round(($holiday-$today)/(60*60*24));
 ?>
-<br>
