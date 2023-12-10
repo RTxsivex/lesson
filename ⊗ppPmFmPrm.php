@@ -150,3 +150,53 @@ $input = $_GET['text'];
 echo "Количество слов: ".count(preg_split('#\s+#', $input))."<br>"."Количество символов: ".mb_strlen($input, "utf8");
 ?>
 #9
+<form action="" method="get">
+    <textarea name="text"> <?= $_GET['text'] ?? 'test'?> </textarea><br><br>
+    <input type="submit">
+</form>
+<?php
+$str = $_GET['text'];
+function getCharPercentage($str)
+{
+    $char_counts = array_count_values(preg_split('//u', $str, -1, PREG_SPLIT_NO_EMPTY));
+    $resStr='';
+    $total_chars = mb_strlen($str,'utf8');
+    foreach ($char_counts as $char =>$count)
+    {
+        $res[$char]=round($count/$total_chars*100.,2)."%";
+    }
+
+    return $res;
+}
+
+echo '<pre>';
+print_r(getCharPercentage($str)); // Добавьте сюда ваш текст
+echo '</pre>';
+?>
+#10
+<form action="" method="GET">
+    <select name="day">
+        <?php
+        $days=range(1,31,1);
+        foreach ($days as $day)
+            echo "<option>$day</option><br>";?>
+    </select><br><br>
+    <select name="month">
+        <?php
+        $months = ['Январь'=>1, 'Февраль'=>2 , 'Март'=>3  , 'Апрель'=>4  , 'Май'=>5  , 'Июнь'=>6  , 'Июль'=>7  , 'Август'=>8  , 'Сентябрь'=>9  , 'Октябрь'=>10  , 'Ноябрь'=>11  , 'Декабрь'=>12];
+        foreach ($months as $key=>$month)
+            echo "<option>$month.$key</option><br>";?>
+    </select><br><br>
+    <select name="year">
+        <?php
+        $arr=range(1990,2025,1);
+        foreach ($arr as $year)
+            echo "<option>$year</option><br>";?>
+    </select><br><br>
+    <input type="submit">
+</form>
+<?php
+print_r(date('D',strtotime($_GET['day'].".".preg_replace('#[а-яёА-ЯЁ]+#u','',$_GET['month']).$_GET['year'])));
+
+#11
+
