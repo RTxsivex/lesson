@@ -197,6 +197,7 @@ echo '</pre>';
 </form>
 <?php
 print_r(date('D',strtotime($_GET['day'].".".preg_replace('#[а-яёА-ЯЁ]+#u','',$_GET['month']).$_GET['year'])));
+?>
 
 #11
 <form action="" method="get">
