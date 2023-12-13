@@ -1,0 +1,16 @@
+#1
+<?php
+$text = file_get_contents('text.txt');
+file_put_contents('text.txt', $text**2);
+echo file_get_contents('text.txt')."<br>";
+?>
+#2
+<?php
+$test = file_get_contents('count.txt');
+file_put_contents('count.txt',$test+1);
+echo file_get_contents('count.txt')."<br>";
+?>
+#3
+<?php
+
+?>
